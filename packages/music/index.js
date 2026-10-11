@@ -8,7 +8,7 @@ const { loadCommands, loadEvents } = require('@dominyx/core');
 const { attachLavalink, getManager, searchTrack, getOrCreatePlayer } = require('./lib/lavalink');
 const { requireDj, getMusicSettings } = require('./lib/settings');
 
-const DJ_GATED_COMMANDS = new Set(['play', 'pause', 'resume', 'skip', 'stop', 'loop', 'shuffle', 'volume', '247']);
+const DJ_GATED_COMMANDS = new Set(['play', 'pause', 'resume', 'skip', 'stop', 'loop', 'shuffle', 'volume', '247', 'clear', 'remove']);
 
 const client = new Client({
   intents: [

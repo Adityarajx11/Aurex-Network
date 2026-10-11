@@ -14,6 +14,8 @@ const ALIASES = {
   sh: 'shuffle', shuffle: 'shuffle',
   loop: 'loop',
   mylist: 'mylist',
+  clear: 'clear', c: 'clear',
+  rm: 'remove', remove: 'remove',
 };
 
 async function isDj(message) {
@@ -49,7 +51,7 @@ module.exports = {
       if (!cmd) return;
 
       // DJ-gated like the slash versions.
-      const gated = ['play', 'pause', 'resume', 'skip', 'stop', 'loop', 'shuffle', 'volume'].includes(cmd);
+      const gated = ['play', 'pause', 'resume', 'skip', 'stop', 'loop', 'shuffle', 'volume', 'clear', 'remove'].includes(cmd);
       if (gated && !(await isDj(message))) {
         await message.reply('🚫 You need the DJ role to control the music.').catch(() => {});
         return;
@@ -133,6 +135,27 @@ module.exports = {
           pl.queue.current = null;
         } catch {}
         return message.reply('⏹️ Stopped.').catch(() => {});
+      }
+
+      if (cmd === 'clear') {
+        const pl = player();
+        if (!pl || (!pl.queue.current && pl.queue.tracks.length === 0)) {
+          return message.reply('📭 Queue is already empty.').catch(() => {});
+        }
+        const n = pl.queue.tracks.length;
+        pl.queue.tracks.splice(0, n);
+        return message.reply(n > 0 ? `🧹 Cleared **${n}** upcoming song(s). Current keeps playing.` : '📭 Nothing upcoming — current keeps playing.').catch(() => {});
+      }
+
+      if (cmd === 'remove') {
+        const pl = player();
+        const pos = parseInt(rest[0], 10);
+        if (!pl || pl.queue.tracks.length === 0) return message.reply('📭 Queue is empty.').catch(() => {});
+        if (!Number.isInteger(pos) || pos < 1 || pos > pl.queue.tracks.length) {
+          return message.reply(`❌ Usage: \`!rm <1-${pl.queue.tracks.length}>\` (see \`!queue\`).`).catch(() => {});
+        }
+        const [gone] = pl.queue.tracks.splice(pos - 1, 1);
+        return message.reply(`🗑️ Removed **${gone?.info?.title || 'song'}** (#${pos}).`).catch(() => {});
       }
 
       if (cmd === 'pause') {

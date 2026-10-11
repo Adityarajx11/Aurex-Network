@@ -250,7 +250,21 @@ async function searchTrack(query, requestUser, requestUserId) {
   if (!node) throw new Error('No Lavalink node connected. Check LAVALINK_* env vars.');
 
   const isUrl = /^https?:\/\//i.test(query);
-  const res = await node.search({ query, source: isUrl ? undefined : 'ytsearch' }, requestUser);
+  let res;
+  try {
+    res = await node.search({ query, source: isUrl ? undefined : 'ytsearch' }, requestUser);
+  } catch (err) {
+    throw err;
+  }
+  console.log(`[music] search "${String(query).slice(0, 60)}" → loadType=${res?.loadType} tracks=${res?.tracks?.length ?? 0} isUrl=${isUrl}`);
+
+  // Spotify URLs sometimes need an explicit source hint on plugin hosts.
+  if (isUrl && (!res || !res.tracks || res.tracks.length === 0) && /open\.spotify\.com/i.test(query)) {
+    try {
+      res = await node.search({ query, source: 'spsearch' }, requestUser);
+      console.log(`[music] spsearch retry → loadType=${res?.loadType} tracks=${res?.tracks?.length ?? 0}`);
+    } catch {}
+  }
 
   if (!res || !res.tracks || res.tracks.length === 0) return null;
 
@@ -261,7 +275,6 @@ async function searchTrack(query, requestUser, requestUserId) {
     t.requesterId = requestUserId || null;
     return t;
   });
-  console.log(`[music] search "${String(query).slice(0, 60)}" → loadType=${res.loadType} tracks=${tracks.length} isUrl=${isUrl}`);
   // Only REAL playlists/albums queue many songs. Plain video/track links and
   // YouTube Mixes (list=RD...) play single — never "similar songs" dumps.
   function wantsPlaylist(url) {

@@ -1,5 +1,5 @@
 const { EmbedBuilder } = require('discord.js');
-const { pool } = require('@aurex/core');
+const { pool } = require('@dominyx/core');
 const { getGuardSettings } = require('./guardStore');
 
 async function nextCaseNumber(guildId) {
@@ -68,7 +68,7 @@ async function logCaseToChannel(client, guildId, { action, targetTag, targetId, 
       { name: 'Moderator', value: `${moderatorTag}`, inline: true },
       { name: 'Reason', value: reason || 'No reason provided' },
     )
-    .setFooter({ text: 'Aurex • Guard' })
+    .setFooter({ text: 'Dominyx • Guard' })
     .setTimestamp();
 
   await channel.send({ embeds: [embed] }).catch(() => {});

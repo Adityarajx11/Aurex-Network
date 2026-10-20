@@ -1,6 +1,6 @@
-# Threat Model — Aurex Network
+# Threat Model — Dominyx Network
 
-Scope: `aurex-network` monorepo as implemented (6 Discord bots + `packages/hq` Next.js dashboard + shared Postgres). Evidence locations are `file:line`.
+Scope: `dominyx-network` monorepo as implemented (6 Discord bots + `packages/hq` Next.js dashboard + shared Postgres). Evidence locations are `file:line`.
 
 ## 1. Assets
 

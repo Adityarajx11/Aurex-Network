@@ -1,5 +1,5 @@
 const { initGuardTables } = require('../lib/guardStore');
-const { ensureEnabledColumn } = require('@aurex/core');
+const { ensureEnabledColumn } = require('@dominyx/core');
 
 module.exports = {
   name: 'clientReady',

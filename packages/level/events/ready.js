@@ -1,5 +1,5 @@
 const { initLevelDatabase } = require('../lib/db');
-const { ensureEnabledColumn } = require('@aurex/core');
+const { ensureEnabledColumn } = require('@dominyx/core');
 
 module.exports = {
   name: 'clientReady',

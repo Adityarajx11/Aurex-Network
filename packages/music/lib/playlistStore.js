@@ -2,7 +2,7 @@
 // the JSON file is a local-dev fallback when the DB is unreachable.
 const fs = require('fs');
 const path = require('path');
-const { pool } = require('@aurex/core');
+const { pool } = require('@dominyx/core');
 
 const DATA_FILE = path.join(__dirname, '..', 'data', 'playlists.json');
 const MAX_SONGS = 100;

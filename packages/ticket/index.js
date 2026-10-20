@@ -4,7 +4,7 @@ require('dotenv').config({ path: path.join(__dirname, '.env') });
 require('dotenv').config();
 const { Client, GatewayIntentBits, MessageFlags, Events } = require('discord.js');
 
-const { loadCommands, loadEvents, requireModuleEnabled } = require('@aurex/core');
+const { loadCommands, loadEvents, requireModuleEnabled } = require('@dominyx/core');
 const { startAutoClose } = require('./lib/autoClose');
 
 const client = new Client({

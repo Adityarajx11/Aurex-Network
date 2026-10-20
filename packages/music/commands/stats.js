@@ -65,7 +65,7 @@ module.exports = {
           { name: '💿 Favourite artists', value: artists },
           { name: '🕘 Recent plays', value: hist },
         )
-        .setFooter({ text: `Aurex • Stats • ${target.tag}`, iconURL: interaction.client.user.displayAvatarURL() })
+        .setFooter({ text: `Dominyx • Stats • ${target.tag}`, iconURL: interaction.client.user.displayAvatarURL() })
         .setTimestamp();
       const sent = await interaction.editReply({ embeds: [embed] });
       setTimeout(() => interaction.deleteReply().catch(() => {}), 120000);
@@ -93,7 +93,7 @@ module.exports = {
         { name: '💿 Top artists', value: artists },
         { name: '🔥 Top songs', value: songs },
       )
-      .setFooter({ text: `Aurex • Stats • season ${currentSeason()}`, iconURL: interaction.client.user.displayAvatarURL() })
+      .setFooter({ text: `Dominyx • Stats • season ${currentSeason()}`, iconURL: interaction.client.user.displayAvatarURL() })
       .setTimestamp();
     const sent = await interaction.editReply({ embeds: [embed] });
     setTimeout(() => interaction.deleteReply().catch(() => {}), 120000);

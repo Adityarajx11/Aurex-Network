@@ -7,12 +7,12 @@
 - Music needs `LAVALINK_HOST/PORT/PASSWORD/SECURE` (public Lavalink host configured).
 
 ## Vercel (HQ website)
-- Project `aurex-network-hq`, Root Directory `packages/hq`, auto-deploys from GitHub `main` (~1 min).
+- Project `dominyx-network-hq`, Root Directory `packages/hq`, auto-deploys from GitHub `main` (~1 min).
 - MUST use the PUBLIC Postgres URL (`...proxy.rlwy.net:PORT...`, e.g. host `iriguchi.proxy.rlwy.net:53765`). Internal URL → `ENOTFOUND`.
 - After any env change: Deployments → ⋯ → Redeploy.
 
 ## GitHub
-- `https://github.com/Adityarajx11/Aurex-Network.git`, branch `main`.
+- `https://github.com/Adityarajx11/Dominyx-Network.git`, branch `main`.
 - Commits use inline identity (`-c user.name=Adityarajx11 -c user.email=Adityarajx11@users.noreply.github.com`). No `gh` CLI.
 
 ## Discord applications (7)

@@ -1,7 +1,7 @@
 const { SlashCommandBuilder, PermissionFlagsBits, ChannelType, EmbedBuilder, MessageFlags } = require('discord.js');
 const { getConfig, setConfig } = require('../lib/ticketStore');
 
-const FOOTER = { text: 'Aurex • Tickets' };
+const FOOTER = { text: 'Dominyx • Tickets' };
 
 module.exports = {
   data: new SlashCommandBuilder()

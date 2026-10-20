@@ -41,7 +41,7 @@ module.exports = {
       .setTitle(`🏆 Music leaderboard — ${period === 'season' ? 'this season' : 'lifetime'}`)
       .setDescription(`*${interaction.guild.name} · 👑 leader: <@${top.user_id}> with **${top.xp} XP***\n\n${linesText}`)
       .setThumbnail(interaction.guild.iconURL() ?? undefined)
-      .setFooter({ text: `Aurex • Music XP • +10/song, +5 new artist • season ${currentSeason()}`, iconURL: interaction.client.user.displayAvatarURL() })
+      .setFooter({ text: `Dominyx • Music XP • +10/song, +5 new artist • season ${currentSeason()}`, iconURL: interaction.client.user.displayAvatarURL() })
       .setTimestamp();
     const sent = await interaction.editReply({ embeds: [embed] });
     setTimeout(() => interaction.deleteReply().catch(() => {}), 120000);

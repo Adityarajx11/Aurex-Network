@@ -44,7 +44,7 @@ module.exports = {
         .setColor(0x2ECC71)
         .setTitle('✅ Channel Updated')
         .setDescription(`Level-up messages will now post in ${channel}.`)
-        .setFooter({ text: 'Aurex • Leveling Config', iconURL: interaction.client.user.displayAvatarURL() })
+        .setFooter({ text: 'Dominyx • Leveling Config', iconURL: interaction.client.user.displayAvatarURL() })
         .setTimestamp();
 
       return interaction.reply({ embeds: [embed] });
@@ -62,7 +62,7 @@ module.exports = {
         .setColor(0x2ECC71)
         .setTitle('✅ Role Added')
         .setDescription(`Members will get **${role.name}** at level **${level}**.`)
-        .setFooter({ text: 'Aurex • Leveling Config', iconURL: interaction.client.user.displayAvatarURL() })
+        .setFooter({ text: 'Dominyx • Leveling Config', iconURL: interaction.client.user.displayAvatarURL() })
         .setTimestamp();
 
       return interaction.reply({ embeds: [embed] });
@@ -76,7 +76,7 @@ module.exports = {
         .setColor(0x2ECC71)
         .setTitle('☑️ Role Removed')
         .setDescription(`Removed the level role for level **${level}**.`)
-        .setFooter({ text: 'Aurex • Leveling Config', iconURL: interaction.client.user.displayAvatarURL() })
+        .setFooter({ text: 'Dominyx • Leveling Config', iconURL: interaction.client.user.displayAvatarURL() })
         .setTimestamp();
 
       return interaction.reply({ embeds: [embed] });
@@ -95,7 +95,7 @@ module.exports = {
           { name: 'Message Template', value: config?.message_template || '🎉 {user} leveled up to **Level {level}**!' },
           { name: 'Level Roles', value: rolesText },
         )
-        .setFooter({ text: 'Aurex • Leveling Config', iconURL: interaction.client.user.displayAvatarURL() })
+        .setFooter({ text: 'Dominyx • Leveling Config', iconURL: interaction.client.user.displayAvatarURL() })
         .setTimestamp();
 
       return interaction.reply({ embeds: [embed] });

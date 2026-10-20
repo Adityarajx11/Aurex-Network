@@ -14,7 +14,7 @@ function moodEmbed(mood, queries) {
     .setColor(0x10B981)
     .setTitle(`🎧 Mood: ${mood}`)
     .setDescription(`${MOODS[mood]?.blurb || ''}\n\n${queries.map((q, i) => `${i + 1}. **${q}**`).join('\n')}`)
-    .setFooter({ text: 'Aurex • Moods' });
+    .setFooter({ text: 'Dominyx • Moods' });
 }
 
 function moodComponents(mood, salt) {

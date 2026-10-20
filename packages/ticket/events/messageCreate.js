@@ -1,5 +1,5 @@
 const { getTicketByChannel, touchTicketActivity } = require('../lib/ticketStore');
-const { isModuleEnabled } = require('@aurex/core');
+const { isModuleEnabled } = require('@dominyx/core');
 
 // Cache of open ticket channels so ordinary chat costs zero DB reads.
 // Invalidated on close (ticketInteractions) and refreshed on miss.

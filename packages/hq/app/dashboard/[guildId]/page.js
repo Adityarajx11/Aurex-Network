@@ -75,7 +75,7 @@ export default async function GuildPage({ params, searchParams }) {
             !access.hasBot && (
               <div className="wrap" style={{ paddingBottom: 0 }}>
                 <div className="notice">
-                  <strong>Tip:</strong> a Aurex bot isn't in this server yet — invite one from the home page. Settings saved here will apply as soon as a bot joins.
+                  <strong>Tip:</strong> a Dominyx bot isn't in this server yet — invite one from the home page. Settings saved here will apply as soon as a bot joins.
                 </div>
               </div>
             )

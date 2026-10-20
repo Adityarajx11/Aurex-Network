@@ -12,6 +12,6 @@
 | `client_id … is not snowflake` | `BOT_ID_*` holds a token, not an ID → restore numeric client IDs |
 | `getaddrinfo ENOTFOUND postgres.railway.internal` | Internal DB URL on Vercel → use public `...proxy.rlwy.net...` URL |
 | `discord 404 Unknown Guild` on server open | No in-guild bot token available → set 6× `BOT_TOKEN_*` on Vercel → Redeploy |
-| "None of the Aurex bots…" / "no permission" | Wrong login account (check server owner crown) or tokens missing |
+| "None of the Dominyx bots…" / "no permission" | Wrong login account (check server owner crown) or tokens missing |
 | Vercel not auto-deploying | Push empty trigger commit (`git commit --allow-empty`) to fire webhook |
 | `npm.ps1 cannot be loaded` | PowerShell policy → always run `npm.cmd` |

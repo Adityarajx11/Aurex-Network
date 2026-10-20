@@ -1,7 +1,7 @@
 const { getGuardSettings } = require('../lib/guardStore');
 const { createCase, logCaseToChannel } = require('../lib/modlog');
 const { alertModlog } = require('../lib/antinuke');
-const { isModuleEnabled } = require('@aurex/core');
+const { isModuleEnabled } = require('@dominyx/core');
 
 // Join-burst windows per guild for raid detection (in-memory).
 const joins = new Map(); // guildId -> number[]

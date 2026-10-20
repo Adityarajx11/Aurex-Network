@@ -8,7 +8,7 @@
 6. Invite flow with verified permission bits + `BOT_ID_*` client IDs.
 7. Red/black motion redesign; removed invite-nav links; logos deleted.
 8. Fixed stale `.next` cache crash.
-9. Deployed HQ to Vercel (`aurex.vercel.app`), root `packages/hq`.
+9. Deployed HQ to Vercel (`dominyx.vercel.app`), root `packages/hq`.
 10. Vercel env saga: localhost→public URLs, tab-char pastes, ID/token mixup — all resolved.
 11. Fixed unstyled dashboard (CSS import to `layout.js`).
 12. Fixed double-login (cookies on response objects).

@@ -6,7 +6,7 @@
 | Var | Get it from |
 |---|---|
 | `DISCORD_CLIENT_ID` / `DISCORD_CLIENT_SECRET` | Dev Portal → HQ app → OAuth2 (Reset Secret if lost) |
-| `DISCORD_REDIRECT_URI` | `http://localhost:3000/api/auth/callback` locally; `https://aurex.vercel.app/api/auth/callback` on Vercel |
+| `DISCORD_REDIRECT_URI` | `http://localhost:3000/api/auth/callback` locally; `https://dominyx.vercel.app/api/auth/callback` on Vercel |
 | `BOT_TOKEN` | Dev Portal → HQ app → Bot tab (Reset Token if lost) |
 | `DATABASE_URL` | Railway → Postgres → Variables → `DATABASE_PUBLIC_URL` (public! never the `.internal` one) |
 | `PUBLIC_APP_URL` | `http://localhost:3000` locally; Vercel URL on Vercel |

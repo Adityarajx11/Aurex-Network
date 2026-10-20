@@ -58,7 +58,7 @@ async function checkGuild(client, guild) {
       .setTitle(live.snippet.title)
       .setURL(watchUrl)
       .setDescription(live.snippet.description?.slice(0, 200) || '')
-      .setFooter({ text: 'Aurex • YouTube Live' })
+      .setFooter({ text: 'Dominyx • YouTube Live' })
       .setTimestamp();
     const thumb = live.snippet.thumbnails?.high?.url || live.snippet.thumbnails?.default?.url;
     if (thumb) embed.setImage(thumb);

@@ -1,4 +1,4 @@
-const { pool } = require('@aurex/core');
+const { pool } = require('@dominyx/core');
 
 async function initPingSettings() {
   await pool.query(`

@@ -24,7 +24,7 @@ function loadCommands(client, commandsDir) {
     loaded++;
   }
 
-  // Every Aurex bot gets the shared /module command, so the module switch
+  // Every Dominyx bot gets the shared /module command, so the module switch
   // can be flipped from Discord as well as from the dashboard.
   const moduleKey = path.basename(path.dirname(commandsDir));
   if (MODULE_TABLES[moduleKey] && !client.commands.has('module')) {

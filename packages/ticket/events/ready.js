@@ -1,5 +1,5 @@
 const { initTicketTables } = require('../lib/ticketStore');
-const { ensureEnabledColumn } = require('@aurex/core');
+const { ensureEnabledColumn } = require('@dominyx/core');
 
 module.exports = {
   name: 'clientReady',

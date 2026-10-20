@@ -1,5 +1,5 @@
 const { getGreetSettings } = require('../lib/settings');
-const { isModuleEnabled } = require('@aurex/core');
+const { isModuleEnabled } = require('@dominyx/core');
 
 const DEFAULT_GOODBYE = '👋 **{user}** just left {server}. We\'ll miss you!';
 

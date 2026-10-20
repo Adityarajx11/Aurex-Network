@@ -24,7 +24,7 @@ module.exports = {
       .setColor(0xDC143C)
       .setTitle(`📋 Case History — ${target.tag}`)
       .setDescription(text.slice(0, 4000))
-      .setFooter({ text: 'Aurex • Guard' });
+      .setFooter({ text: 'Dominyx • Guard' });
 
     return interaction.reply({ embeds: [embed], flags: MessageFlags.Ephemeral });
   },

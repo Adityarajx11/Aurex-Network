@@ -1,4 +1,4 @@
-const { pool } = require('@aurex/core');
+const { pool } = require('@dominyx/core');
 
 async function initTicketTables() {
   await pool.query(`

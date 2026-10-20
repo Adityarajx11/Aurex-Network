@@ -24,7 +24,7 @@ module.exports = {
       .setTitle(`🏆 ${interaction.guild.name} Leaderboard`)
       .setDescription(lines.join('\n'))
       .setThumbnail(interaction.guild.iconURL() ?? undefined)
-      .setFooter({ text: 'Aurex • Leaderboard', iconURL: interaction.client.user.displayAvatarURL() })
+      .setFooter({ text: 'Dominyx • Leaderboard', iconURL: interaction.client.user.displayAvatarURL() })
       .setTimestamp();
 
     return interaction.reply({ embeds: [embed] });

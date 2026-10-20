@@ -1,7 +1,7 @@
 export const BOTS = [
   {
     id: 'music',
-    name: 'Aurex Music',
+    name: 'Dominyx Music',
     short: 'Music',
     emoji: '🎵',
     tagline: 'Nonstop music for your VC',
@@ -11,7 +11,7 @@ export const BOTS = [
   },
   {
     id: 'level',
-    name: 'Aurex Level',
+    name: 'Dominyx Level',
     short: 'Levels',
     emoji: '🏆',
     tagline: 'Turn chat into a competition',
@@ -21,7 +21,7 @@ export const BOTS = [
   },
   {
     id: 'greet',
-    name: 'Aurex Greet',
+    name: 'Dominyx Greet',
     short: 'Welcome',
     emoji: '👋',
     tagline: 'Welcomes that wow',
@@ -31,7 +31,7 @@ export const BOTS = [
   },
   {
     id: 'ticket',
-    name: 'Aurex Ticket',
+    name: 'Dominyx Ticket',
     short: 'Support',
     emoji: '🎫',
     tagline: 'Support without chaos',
@@ -41,7 +41,7 @@ export const BOTS = [
   },
   {
     id: 'ping',
-    name: 'Aurex Ping',
+    name: 'Dominyx Ping',
     short: 'Alerts',
     emoji: '📡',
     tagline: 'Never miss a go-live',
@@ -51,7 +51,7 @@ export const BOTS = [
   },
   {
     id: 'guard',
-    name: 'Aurex Guard',
+    name: 'Dominyx Guard',
     short: 'Safety',
     emoji: '🛡️',
     tagline: 'Mod team in a box',

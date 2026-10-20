@@ -1,4 +1,4 @@
-const { initDatabase, ensureEnabledColumn } = require('@aurex/core');
+const { initDatabase, ensureEnabledColumn } = require('@dominyx/core');
 const { initManager } = require('../lib/lavalink');
 const { initMusicSettings } = require('../lib/settings');
 const { initHistoryTables } = require('../lib/history');

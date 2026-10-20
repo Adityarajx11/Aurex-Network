@@ -70,7 +70,7 @@ export const useThemeStore = create(
       getCurrentTheme: () => THEME_PRESETS[get().preset] || THEME_PRESETS.obsidian,
     }),
     {
-      name: 'aurex_theme_preset',
+      name: 'dominyx_theme_preset',
     }
   )
 );

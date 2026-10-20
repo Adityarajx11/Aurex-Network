@@ -4,7 +4,7 @@ require('dotenv').config({ path: path.join(__dirname, '.env') });
 require('dotenv').config();
 const { Client, GatewayIntentBits, MessageFlags } = require('discord.js');
 
-const { loadCommands, loadEvents, requireModuleEnabled } = require('@aurex/core');
+const { loadCommands, loadEvents, requireModuleEnabled } = require('@dominyx/core');
 
 const client = new Client({
   intents: [

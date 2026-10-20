@@ -1,6 +1,6 @@
 const { ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder, StringSelectMenuBuilder, PermissionsBitField, MessageFlags } = require('discord.js');
 const { getConfig, getOpenTicketCountForUser, createTicket, getTicketByChannel, claimTicket, setPriority, closeTicket, saveTranscript, deleteTicket } = require('../lib/ticketStore');
-const { isModuleEnabled } = require('@aurex/core');
+const { isModuleEnabled } = require('@dominyx/core');
 
 async function resolveChannel(interaction) {
   if (interaction.channel) return interaction.channel;

@@ -1,4 +1,4 @@
-# Security Checklist — Aurex Network
+# Security Checklist — Dominyx Network
 
 Status per item: ✅ done · ⚠️ partial · ❌ missing. Locations are evidence, not fixes (nothing was changed to write this).
 

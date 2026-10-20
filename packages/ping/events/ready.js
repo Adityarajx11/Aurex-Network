@@ -1,5 +1,5 @@
 const { initPingSettings } = require('../lib/pingStore');
-const { ensureEnabledColumn } = require('@aurex/core');
+const { ensureEnabledColumn } = require('@dominyx/core');
 const { startLivePolling } = require('../lib/youtubeLive');
 
 module.exports = {

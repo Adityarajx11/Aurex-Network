@@ -1,4 +1,4 @@
-const { pool } = require('@aurex/core');
+const { pool } = require('@dominyx/core');
 
 const DAY_CAP = 100;
 const cooldowns = new Map(); // `${guildId}:${userId}` -> last XP timestamp
@@ -64,7 +64,7 @@ async function getXpSettings(guildId) {
 // Awards XP for a started track. Returns { xp, newArtist } awarded (0s when gated).
 async function awardTrackXp(guildId, userId, artist) {
   if (!userId || userId === 'unknown') return { xp: 0, newArtist: false };
-  const { isModuleEnabled } = require('@aurex/core');
+  const { isModuleEnabled } = require('@dominyx/core');
   if (!(await isModuleEnabled(guildId, 'music'))) return { xp: 0, newArtist: false };
   const { enabled, cooldownSec } = await getXpSettings(guildId);
   if (!enabled) return { xp: 0, newArtist: false };
@@ -190,10 +190,10 @@ async function syncTierRole(client, guildId, userId) {
       if (should && !has) {
         const role = guild.roles.cache.get(t.role_id);
         if (role && me.roles.highest.position > role.position) {
-          await member.roles.add(role, `Aurex music XP tier ${t.threshold}`).catch(() => {});
+          await member.roles.add(role, `Dominyx music XP tier ${t.threshold}`).catch(() => {});
         }
       } else if (!should && has && tierIds.includes(t.role_id)) {
-        await member.roles.remove(t.role_id, 'Aurex music XP tier change').catch(() => {});
+        await member.roles.remove(t.role_id, 'Dominyx music XP tier change').catch(() => {});
       }
     }
   } catch {}

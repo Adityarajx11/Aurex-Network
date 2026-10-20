@@ -1,4 +1,4 @@
-const { pool } = require('@aurex/core');
+const { pool } = require('@dominyx/core');
 const { similarTracks, similarArtists } = require('./reco');
 const { searchTrack, getManager, getOrCreatePlayer } = require('./lavalink');
 const { getMusicSettings } = require('./settings');
@@ -78,7 +78,7 @@ async function updateRadioMessage(client, guildId) {
         `Mode: **${session.mode === 'only' ? 'Artist Only' : 'Artist Mix'}**\n` +
         `▶️ Now: **${cur?.info?.title || '—'}**\n\n**Up next:**\n${upNext}`
       )
-      .setFooter({ text: 'Aurex • Radio' })
+      .setFooter({ text: 'Dominyx • Radio' })
       .setTimestamp();
     const { sessionRows } = require('../commands/radio');
     await msg.edit({ embeds: [embed], components: sessionRows() }).catch(() => {});

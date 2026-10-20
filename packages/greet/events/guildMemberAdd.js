@@ -1,7 +1,7 @@
 const { AttachmentBuilder } = require('discord.js');
 const { getGreetSettings } = require('../lib/settings');
 const { generateWelcomeCard } = require('../lib/welcomeCard');
-const { isModuleEnabled } = require('@aurex/core');
+const { isModuleEnabled } = require('@dominyx/core');
 
 const DEFAULT_TEMPLATE = '🚀 {user} just landed in {server}! We\'re now {membercount} members strong.';
 

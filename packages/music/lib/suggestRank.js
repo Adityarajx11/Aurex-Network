@@ -1,5 +1,5 @@
 // Suggestion ranking: normalize, dedupe, score by evidence. No AI, no new deps.
-const { pool } = require('@aurex/core');
+const { pool } = require('@dominyx/core');
 
 const NOISE_RE = /\(?(official\s+)?(music\s+)?video|lyrical|lyric|audio|visualiser|visualizer|full\s+song|title\s+track|4k|hd|1080p|explicit|slowed|sped\s*up|\[.*?\]|\(.*?version\)/gi;
 
@@ -71,7 +71,7 @@ async function requesterArtists(guildId, userId, limit = 30) {
 function logSuggestionDebug(seed, candidates, picked) {
   try {
     console.log(
-      '[AUREX:SUGGESTIONS] ' +
+      '[DOMINYX:SUGGESTIONS] ' +
         JSON.stringify({
           seed: {
             title: seed?.title,

@@ -53,7 +53,7 @@ async function buildRelatedSuggest(track, requestTag, ctx) {
           .setColor(0x8B5CF6)
           .setTitle('💡 You may also like')
           .setDescription(`Because you played **${title}** — ${artist}`)
-          .setFooter({ text: 'Aurex • Suggestions' });
+          .setFooter({ text: 'Dominyx • Suggestions' });
         const menu = new StringSelectMenuBuilder()
           .setCustomId('suggest_pick')
           .setPlaceholder('Pick a song to queue…')
@@ -139,7 +139,7 @@ async function buildMenuFromQueries(queries, seedTitle, seedArtist, requestTag) 
     .setColor(0x8B5CF6)
     .setTitle('💡 You may also like')
     .setDescription(`Because you played **${seedTitle}** — ${seedArtist}`)
-    .setFooter({ text: 'Aurex • Suggestions' });
+    .setFooter({ text: 'Dominyx • Suggestions' });
   return {
     embeds: [embed],
     components: [

@@ -73,7 +73,7 @@ module.exports = {
     const sub = interaction.options.getSubcommand();
     const guildId = interaction.guild.id;
 
-    const footer = { text: 'Aurex • Greet', iconURL: interaction.client.user.displayAvatarURL() };
+    const footer = { text: 'Dominyx • Greet', iconURL: interaction.client.user.displayAvatarURL() };
 
     if (sub === 'channel') {
       const channel = interaction.options.getChannel('channel');

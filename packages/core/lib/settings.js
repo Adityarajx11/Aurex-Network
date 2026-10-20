@@ -1,6 +1,6 @@
 const { pool } = require('./db');
 
-// One settings table per module. The Aurex dashboard writes the
+// One settings table per module. The Dominyx dashboard writes the
 // configuration straight into these tables, and every table carries an
 // `enabled` column that acts as the module on/off switch.
 const MODULE_TABLES = {
@@ -23,7 +23,7 @@ const MODULE_LABELS = {
 
 // The dashboard writes to Postgres directly, so the bots read through a short
 // cache to keep per-message handlers off the database on every single message.
-const CACHE_TTL_MS = Number(process.env.AUREX_SETTINGS_TTL_MS || 15000);
+const CACHE_TTL_MS = Number(process.env.DOMINYX_SETTINGS_TTL_MS || 15000);
 
 const cache = new Map();
 
@@ -109,7 +109,7 @@ async function requireModuleEnabled(interaction, module) {
   if (await isModuleEnabled(interaction.guildId, module)) return true;
 
   const label = MODULE_LABELS[module] || module;
-  const content = `⛔ **${label}** is disabled for this server. Enable it from the Aurex dashboard.`;
+  const content = `⛔ **${label}** is disabled for this server. Enable it from the Dominyx dashboard.`;
   try {
     const { MessageFlags } = require('discord.js');
     const payload = { content, flags: MessageFlags.Ephemeral };

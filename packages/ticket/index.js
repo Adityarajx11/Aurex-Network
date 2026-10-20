@@ -23,9 +23,11 @@ loadEvents(client, path.join(__dirname, 'events'));
 client.once(Events.ClientReady, () => startAutoClose(client));
 
 client.on('interactionCreate', async (interaction) => {
+  // Buttons and select menus are handled by the ticketInteractions event,
+  // which runs its own switch check. Only guard chat input commands here.
+  if (!interaction.isChatInputCommand()) return;
   if (interaction.guildId && !(await requireModuleEnabled(interaction, 'ticket'))) return;
 
-  if (!interaction.isChatInputCommand()) return;
   const command = client.commands.get(interaction.commandName);
   if (!command) return;
 

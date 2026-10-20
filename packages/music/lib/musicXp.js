@@ -64,8 +64,6 @@ async function getXpSettings(guildId) {
 // Awards XP for a started track. Returns { xp, newArtist } awarded (0s when gated).
 async function awardTrackXp(guildId, userId, artist) {
   if (!userId || userId === 'unknown') return { xp: 0, newArtist: false };
-  const { isModuleEnabled } = require('@dominyx/core');
-  if (!(await isModuleEnabled(guildId, 'music'))) return { xp: 0, newArtist: false };
   const { enabled, cooldownSec } = await getXpSettings(guildId);
   if (!enabled) return { xp: 0, newArtist: false };
 

@@ -2,7 +2,6 @@
 // Luna-style: !p <song>, -p <song>, !skip, !stop, !pause, !resume, !queue, !np, etc.
 const { getOrCreatePlayer, searchTrack, getManager } = require('../lib/lavalink');
 const { getMusicSettings } = require('../lib/settings');
-const { isModuleEnabled } = require('@dominyx/core');
 
 const ALIASES = {
   p: 'play', play: 'play',
@@ -35,7 +34,6 @@ module.exports = {
   async execute(message, client) {
     try {
       if (!message.guild || message.author.bot) return;
-      if (!(await isModuleEnabled(message.guild.id, 'music'))) return;
       const text = (message.content || '').trim();
       if (!text) return;
       // Only the server prefix works — no fallback (owner's choice).

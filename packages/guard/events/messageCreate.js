@@ -1,6 +1,5 @@
 const { getGuardSettings } = require('../lib/guardStore');
 const { createCase, logCaseToChannel } = require('../lib/modlog');
-const { isModuleEnabled } = require('@dominyx/core');
 
 const LINK_RE = /https?:\/\/|discord\.gg\/|discord\.com\/invite\//i;
 
@@ -76,7 +75,6 @@ module.exports = {
   async execute(message, client) {
     try {
       if (!message.guild || message.author.bot) return;
-      if (!(await isModuleEnabled(message.guild.id, 'guard'))) return;
       // Staff and moderators are exempt (fetch member when uncached).
       const member = message.member ?? await message.guild.members.fetch(message.author.id).catch(() => null);
       if (member?.permissions?.has?.('ManageMessages')) return;

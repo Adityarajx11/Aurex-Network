@@ -4,7 +4,7 @@ require('dotenv').config({ path: path.join(__dirname, '.env') });
 require('dotenv').config();
 const { Client, GatewayIntentBits, MessageFlags } = require('discord.js');
 
-const { loadCommands, loadEvents, requireModuleEnabled } = require('@dominyx/core');
+const { loadCommands, loadEvents } = require('@dominyx/core');
 const { attachLavalink, getManager, searchTrack, getOrCreatePlayer } = require('./lib/lavalink');
 const { requireDj, getMusicSettings } = require('./lib/settings');
 
@@ -37,7 +37,6 @@ client.on('interactionCreate', async (interaction) => {
     return;
   }
 
-  if (interaction.guildId && !(await requireModuleEnabled(interaction, 'music'))) return;
 
   if (interaction.isChatInputCommand()) {
     const command = client.commands.get(interaction.commandName);

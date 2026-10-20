@@ -1,6 +1,5 @@
 const { ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder, StringSelectMenuBuilder, PermissionsBitField, MessageFlags } = require('discord.js');
 const { getConfig, getOpenTicketCountForUser, createTicket, getTicketByChannel, claimTicket, setPriority, closeTicket, saveTranscript, deleteTicket } = require('../lib/ticketStore');
-const { isModuleEnabled } = require('@dominyx/core');
 
 async function resolveChannel(interaction) {
   if (interaction.channel) return interaction.channel;
@@ -16,7 +15,6 @@ module.exports = {
   async execute(interaction, client) {
     try {
       if (interaction.isChatInputCommand()) return;
-      if (interaction.guildId && !(await isModuleEnabled(interaction.guildId, 'ticket'))) return;
 
       // Ticket creation select
       if (interaction.isStringSelectMenu() && interaction.customId === 'ticket_create_select') {

@@ -17,6 +17,27 @@ A family of single-purpose Discord bots, sharing one core package. Each bot live
 
 Planned: Dominyx HQ (web dashboard).
 
+## Setup
+
+The complete guide, from creating the Discord applications to deploying every
+bot and the dashboard, is in the dashboard repository:
+
+<https://github.com/adixlucifer0011/aurex-discord-bots/blob/main/docs/SETUP_GUIDE.md>
+
+Quick reference for the bot network:
+
+| Bot | Package | Start | Commands |
+|---|---|---|---|
+| Music | `packages/music` | `npm run start:music` | `/play` `/queue` `/skip` `/volume` `/247` and more |
+| Level | `packages/level` | `npm run start:level` | `/rank` `/leaderboard` `/levelconfig` |
+| Greet | `packages/greet` | `npm run start:greet` | `/greetsetup` |
+| Ticket | `packages/ticket` | `npm run start:ticket` | `/ticketsetup` `/ticketpanel` |
+| Ping | `packages/ping` | `npm run start:ping` | `/pingsetup` |
+| Guard | `packages/guard` | `npm run start:guard` | `/ban` `/kick` `/warn` `/cases` `/guardsetup` and more |
+
+Every bot needs `BOT_TOKEN`, `CLIENT_ID` and `DATABASE_URL`. Register the
+slash commands once with `npm run deploy:music` and the rest.
+
 ## Repo layout
 
 ```

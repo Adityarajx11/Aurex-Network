@@ -4,7 +4,7 @@ require('dotenv').config({ path: path.join(__dirname, '.env') });
 require('dotenv').config();
 const { Client, GatewayIntentBits, MessageFlags, Events } = require('discord.js');
 
-const { loadCommands, loadEvents, requireModuleEnabled } = require('@dominyx/core');
+const { loadCommands, loadEvents } = require('@dominyx/core');
 const { startAutoClose } = require('./lib/autoClose');
 
 const client = new Client({
@@ -26,7 +26,6 @@ client.on('interactionCreate', async (interaction) => {
   // Buttons and select menus are handled by the ticketInteractions event,
   // which runs its own switch check. Only guard chat input commands here.
   if (!interaction.isChatInputCommand()) return;
-  if (interaction.guildId && !(await requireModuleEnabled(interaction, 'ticket'))) return;
 
   const command = client.commands.get(interaction.commandName);
   if (!command) return;

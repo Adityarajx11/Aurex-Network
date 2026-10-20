@@ -1,5 +1,4 @@
 const { getGreetSettings } = require('../lib/settings');
-const { isModuleEnabled } = require('@dominyx/core');
 
 const DEFAULT_GOODBYE = '👋 **{user}** just left {server}. We\'ll miss you!';
 
@@ -7,7 +6,6 @@ module.exports = {
   name: 'guildMemberRemove',
   async execute(member) {
     try {
-      if (!(await isModuleEnabled(member.guild.id, 'greet'))) return;
       const settings = await getGreetSettings(member.guild.id);
       if (!settings.goodbyeChannelId) return;
       if (member.user.bot && !settings.greetBots) return;

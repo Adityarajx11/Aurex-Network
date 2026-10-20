@@ -124,6 +124,34 @@ async function requireModuleEnabled(interaction, module) {
   return false;
 }
 
+// Reads the switch and when the row was last written. The timestamp tells a
+// bot and the dashboard that share a database apart from one that does not.
+async function getModuleStatus(guildId, module) {
+  const table = MODULE_TABLES[module];
+  if (!table) throw new Error(`Unknown module: ${module}`);
+  try {
+    const res = await pool.query(
+      `SELECT enabled, updated_at FROM ${table} WHERE guild_id = $1`,
+      [guildId],
+    );
+    const row = res.rows[0];
+    return {
+      enabled: row ? row.enabled !== false : true,
+      updatedAt: row?.updated_at || null,
+    };
+  } catch (err) {
+    // A table without the bookkeeping columns still reports the switch.
+    try {
+      const res = await pool.query(`SELECT enabled FROM ${table} WHERE guild_id = $1`, [guildId]);
+      const row = res.rows[0];
+      return { enabled: row ? row.enabled !== false : true, updatedAt: null };
+    } catch {
+      console.error(`[settings] could not read the ${module} status: ${err.message}`);
+      return { enabled: true, updatedAt: null };
+    }
+  }
+}
+
 module.exports = {
   MODULE_TABLES,
   MODULE_LABELS,
@@ -131,6 +159,7 @@ module.exports = {
   ensureEnabledColumn,
   isModuleEnabled,
   setModuleEnabled,
+  getModuleStatus,
   invalidateSettingsCache,
   requireModuleEnabled,
 };

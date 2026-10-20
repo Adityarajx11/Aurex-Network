@@ -1,5 +1,5 @@
 const { SlashCommandBuilder, PermissionFlagsBits, EmbedBuilder, MessageFlags } = require('discord.js');
-const { isModuleEnabled, setModuleEnabled, MODULE_LABELS } = require('./settings');
+const { isModuleEnabled, setModuleEnabled, getModuleStatus, MODULE_LABELS } = require('./settings');
 
 // The host and database name only. The password is never included, but seeing
 // which database the bot is reading makes it obvious when a bot and the
@@ -54,15 +54,24 @@ function buildModuleCommand(module) {
         });
       }
 
-      const enabled = await isModuleEnabled(guildId, module);
+      const status = await getModuleStatus(guildId, module);
+      const enabled = status.enabled;
+
+      const fields = [
+        { name: 'Status', value: enabled ? 'Enabled' : 'Disabled' },
+        { name: 'Database', value: databaseTarget() },
+      ];
+      if (status.updatedAt) {
+        fields.push({ name: 'Settings last saved', value: `<t:${Math.floor(new Date(status.updatedAt).getTime() / 1000)}:R>` });
+      } else {
+        fields.push({ name: 'Settings last saved', value: 'Never - this server has no saved settings' });
+      }
+
       return interaction.reply({
         embeds: [new EmbedBuilder()
           .setColor(enabled ? 0x2ecc71 : 0x95a5a6)
           .setTitle(`📡 ${label} Module`)
-          .addFields(
-            { name: 'Status', value: enabled ? 'Enabled' : 'Disabled' },
-            { name: 'Database', value: databaseTarget() },
-          )
+          .addFields(fields)
           .setFooter({ text: 'Aurex • Control' })
           .setTimestamp()],
         flags: MessageFlags.Ephemeral,

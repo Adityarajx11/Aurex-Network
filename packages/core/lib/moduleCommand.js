@@ -1,7 +1,7 @@
 const { SlashCommandBuilder, PermissionFlagsBits, EmbedBuilder, MessageFlags } = require('discord.js');
 const { isModuleEnabled, setModuleEnabled, MODULE_LABELS } = require('./settings');
 
-// A shared command every Dominyx bot registers. It flips the same `enabled`
+// A shared command every Aurex bot registers. It flips the same `enabled`
 // column the dashboard writes, so the bot and the dashboard stay in sync no
 // matter which side the change is made from.
 function buildModuleCommand(module) {
@@ -10,7 +10,7 @@ function buildModuleCommand(module) {
   return {
     data: new SlashCommandBuilder()
       .setName('module')
-      .setDescription(`Turn the ${label} module on or off (also managed from the Dominyx dashboard)`)
+      .setDescription(`Turn the ${label} module on or off (also managed from the Aurex dashboard)`)
       .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
       .addSubcommand(sub => sub.setName('status').setDescription('Show whether the module is enabled'))
       .addSubcommand(sub => sub.setName('enable').setDescription(`Turn ${label} on`))
@@ -33,8 +33,8 @@ function buildModuleCommand(module) {
             .setTitle(enabled ? `✅ ${label} Enabled` : `☑️ ${label} Disabled`)
             .setDescription(enabled
               ? `${label} is live again in this server.`
-              : `${label} is paused in this server. The Dominyx dashboard shows the same state.`)
-            .setFooter({ text: 'Dominyx • Control' })
+              : `${label} is paused in this server. The Aurex dashboard shows the same state.`)
+            .setFooter({ text: 'Aurex • Control' })
             .setTimestamp()],
           flags: MessageFlags.Ephemeral,
         });
@@ -46,7 +46,7 @@ function buildModuleCommand(module) {
           .setColor(enabled ? 0x2ecc71 : 0x95a5a6)
           .setTitle(`📡 ${label} Module`)
           .addFields({ name: 'Status', value: enabled ? 'Enabled' : 'Disabled' })
-          .setFooter({ text: 'Dominyx • Control' })
+          .setFooter({ text: 'Aurex • Control' })
           .setTimestamp()],
         flags: MessageFlags.Ephemeral,
       });

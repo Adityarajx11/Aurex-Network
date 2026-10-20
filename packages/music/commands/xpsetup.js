@@ -1,6 +1,6 @@
 const { SlashCommandBuilder, PermissionFlagsBits, MessageFlags } = require('discord.js');
 const { setTier, removeTier, getTiers, resetSeason } = require('../lib/musicXp');
-const { pool } = require('@dominyx/core');
+const { pool } = require('@aurex/core');
 
 module.exports = {
   data: new SlashCommandBuilder()

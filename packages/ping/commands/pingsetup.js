@@ -60,7 +60,7 @@ module.exports = {
           .setColor(0xDC143C)
           .setTitle('✅ YouTube Live Alerts Enabled')
           .setDescription(`Watching \`${channelId}\`. Live alerts will post in ${alertChannel}.`)
-          .setFooter({ text: 'Dominyx • Ping' })
+          .setFooter({ text: 'Aurex • Ping' })
           .setTimestamp()],
       });
     }
@@ -72,7 +72,7 @@ module.exports = {
           .setColor(0xDC143C)
           .setTitle('☑️ YouTube Live Alerts Disabled')
           .setDescription('No more live notifications until you re-enable.')
-          .setFooter({ text: 'Dominyx • Ping' })
+          .setFooter({ text: 'Aurex • Ping' })
           .setTimestamp()],
       });
     }
@@ -109,7 +109,7 @@ module.exports = {
       const embed = new EmbedBuilder()
         .setColor(0xDC143C)
         .setTitle('📡 Ping Configuration')
-        .setFooter({ text: 'Dominyx • Ping' })
+        .setFooter({ text: 'Aurex • Ping' })
         .setTimestamp()
         .addFields(
           { name: 'YouTube Channel ID', value: settings?.youtube_channel_id || 'Not set' },

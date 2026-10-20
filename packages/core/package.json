@@ -1,5 +1,5 @@
 {
-  "name": "@dominyx/core",
+  "name": "@aurex/core",
   "version": "0.1.0",
   "private": true,
   "main": "index.js",

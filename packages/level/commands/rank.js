@@ -30,7 +30,7 @@ module.exports = {
         { name: 'Level', value: `**${data.level}**`, inline: true },
         { name: 'XP Progress', value: `${bar}\n${data.xp} / ${needed} XP (${percent}%)`, inline: false }
       )
-      .setFooter({ text: 'Dominyx • Rank Card', iconURL: interaction.client.user.displayAvatarURL() })
+      .setFooter({ text: 'Aurex • Rank Card', iconURL: interaction.client.user.displayAvatarURL() })
       .setTimestamp();
 
     return interaction.reply({ embeds: [embed] });

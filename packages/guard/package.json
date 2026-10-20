@@ -1,5 +1,5 @@
 {
-  "name": "dominyx-guard",
+  "name": "aurex-guard",
   "version": "0.1.0",
   "private": true,
   "main": "index.js",
@@ -8,7 +8,7 @@
     "deploy": "node deploy-commands.js"
   },
   "dependencies": {
-    "@dominyx/core": "*",
+    "@aurex/core": "*",
     "discord.js": "^14.16.3",
     "dotenv": "^16.4.5",
     "pg": "^8.13.0"

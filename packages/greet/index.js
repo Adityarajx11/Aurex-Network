@@ -5,7 +5,7 @@ require('dotenv').config();
 const { Client, GatewayIntentBits, MessageFlags } = require('discord.js');
 const { GlobalFonts } = require('@napi-rs/canvas');
 
-const { loadCommands, loadEvents, requireModuleEnabled } = require('@dominyx/core');
+const { loadCommands, loadEvents, requireModuleEnabled } = require('@aurex/core');
 
 const fs = require('fs');
 

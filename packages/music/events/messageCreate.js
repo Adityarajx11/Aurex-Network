@@ -2,7 +2,7 @@
 // Luna-style: !p <song>, -p <song>, !skip, !stop, !pause, !resume, !queue, !np, etc.
 const { getOrCreatePlayer, searchTrack, getManager } = require('../lib/lavalink');
 const { getMusicSettings } = require('../lib/settings');
-const { isModuleEnabled } = require('@dominyx/core');
+const { isModuleEnabled } = require('@aurex/core');
 
 const ALIASES = {
   p: 'play', play: 'play',

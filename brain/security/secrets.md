@@ -1,4 +1,4 @@
-# Secrets — Dominyx Network
+# Secrets — Aurex Network
 
 Rule followed throughout: locations and types only. No values printed.
 

@@ -1,7 +1,7 @@
 # 02 — HQ Website
 
 Next.js 14 app in `packages/hq`. Dev: `npm.cmd run dev` → `http://localhost:3000`.
-Live: `https://dominyx.vercel.app/` (Vercel, root dir `packages/hq`).
+Live: `https://aurex.vercel.app/` (Vercel, root dir `packages/hq`).
 
 ## Pages
 - **`/` Home**: hero, 6 bot cards (tagline, features, Add-to-Discord buttons), login/logout.

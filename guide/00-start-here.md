@@ -1,4 +1,4 @@
-# Dominyx Network — Guide Index
+# Aurex Network — Guide Index
 
 Start here. One file per topic:
 
@@ -13,7 +13,7 @@ Start here. One file per topic:
 | `07-future-premium-plan.md` | Saved monetization plan (not started) |
 | `08-session-history.md` | What was done, step by step, first → last |
 
-Quick facts: repo `https://github.com/Adityarajx11/Dominyx-Network.git` (`main`).
-HQ live: `https://dominyx.vercel.app/`. Local code: `F:\dominyx-network`.
+Quick facts: repo `https://github.com/Adityarajx11/Aurex-Network.git` (`main`).
+HQ live: `https://aurex.vercel.app/`. Local code: `F:\aurex-network`.
 Shell rule: PowerShell blocks `npm.ps1` → always use `npm.cmd`.
 

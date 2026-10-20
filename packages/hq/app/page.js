@@ -25,7 +25,7 @@ export default async function Home({ searchParams }) {
       <RevealScope />
       <nav className="nav">
         <div className="brand">
-          <span className="dot" /> DOMINYX <span className="badge">HQ</span>
+          <span className="dot" /> AUREX <span className="badge">HQ</span>
         </div>
         {session ? (
           <div style={{ display: 'flex', gap: 10 }}>
@@ -40,10 +40,10 @@ export default async function Home({ searchParams }) {
       <header className="hero">
         <Auralis className="hero-auralis" speed={0.35} grain={0.5} />
         <div className="hero-rings" aria-hidden="true"><span /><span /><span /></div>
-        <div className="hero-ghost" aria-hidden="true">DOMINYX</div>
+        <div className="hero-ghost" aria-hidden="true">AUREX</div>
         <div className="hero-badge"><span className="pulse-dot" />6 bots live · Free during beta</div>
         <h1>
-          DOMINYX
+          AUREX
           <span className="accent">Command your Discord network.</span>
         </h1>
         <p className="sub">
@@ -117,7 +117,7 @@ export default async function Home({ searchParams }) {
       <section className="section">
         <div className="wrap" data-reveal>
           <div className="notice">
-            <strong>Never run a slash command again.</strong> Welcome channels, ticket panels, level roles, 24/7 music, live alerts and moderator settings — all editable from Dominyx HQ.
+            <strong>Never run a slash command again.</strong> Welcome channels, ticket panels, level roles, 24/7 music, live alerts and moderator settings — all editable from Aurex HQ.
           </div>
         </div>
       </section>
@@ -155,7 +155,7 @@ export default async function Home({ searchParams }) {
       </section>
 
       <footer className="footer">
-        Dominyx Network · a family of single-purpose Discord bots
+        Aurex Network · a family of single-purpose Discord bots
       </footer>
     </>
   );

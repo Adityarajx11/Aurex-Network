@@ -33,7 +33,7 @@ export default function DashboardShell({ user, children }) {
     <div className="dash">
       <aside className="sidebar">
         <a className="brand side-brand" href="/">
-          <span className="dot" /> DOMINYX <span className="badge">HQ</span>
+          <span className="dot" /> AUREX <span className="badge">HQ</span>
         </a>
 
         <nav className="side-nav">
@@ -59,7 +59,7 @@ export default function DashboardShell({ user, children }) {
                 title={`Open ${b.name}`}
                 className={`side-link side-bot${isActive ? ' active' : ''}`}
               >
-                <span>{b.emoji}</span>{b.name.replace('Dominyx ', '')}
+                <span>{b.emoji}</span>{b.name.replace('Aurex ', '')}
                 <span className="side-dot" style={{ background: b.color, color: b.color }} />
               </a>
             );

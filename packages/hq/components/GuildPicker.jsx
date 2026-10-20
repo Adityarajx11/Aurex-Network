@@ -11,7 +11,7 @@ function iconUrl(guild, size = 128) {
 export default function GuildPicker({ guilds, bot = null, botName = null, detectionOn = true, inviteUrls = {} }) {
   const router = useRouter();
   const openGuild = (id) => router.push(bot ? `/dashboard/${id}?bot=${bot}` : `/dashboard/${id}`);
-  const shortName = botName ? botName.replace('Dominyx ', '') : 'this bot';
+  const shortName = botName ? botName.replace('Aurex ', '') : 'this bot';
   const inviteUrl = bot ? inviteUrls[bot] : null;
   // One shared card design on both tabs; only the badge text differs per bot.
   const listClass = 'server-grid';
@@ -23,7 +23,7 @@ export default function GuildPicker({ guilds, bot = null, botName = null, detect
       <p className="section-sub">
         {botName
           ? 'Every server below opens straight into this bot — config if it lives there, an Add button if it doesn’t.'
-          : 'Pick a server to configure. Servers need at least one Dominyx bot invited before you can edit them.'}
+          : 'Pick a server to configure. Servers need at least one Aurex bot invited before you can edit them.'}
       </p>
       {!detectionOn && (
         <div className="notice" style={{ marginBottom: 18 }}>
@@ -34,7 +34,7 @@ export default function GuildPicker({ guilds, bot = null, botName = null, detect
 
       {guilds.length === 0 ? (
         <div className="empty">
-          We couldn't find any servers you can manage. Make sure you're admin or have Manage Server permission on at least one server, and that a Dominyx bot is in it.
+          We couldn't find any servers you can manage. Make sure you're admin or have Manage Server permission on at least one server, and that a Aurex bot is in it.
         </div>
       ) : (
         <div className={listClass}>
@@ -51,7 +51,7 @@ export default function GuildPicker({ guilds, bot = null, botName = null, detect
                     <div className="server-sub" style={{ textTransform: 'uppercase', letterSpacing: 1, fontSize: 11 }}>{bot ? shortName : 'Server'}</div>
                     <div className="server-name">{g.name}</div>
                     <div className="server-sub">
-                      {g.hasBot ? 'Manage config' : (absent ? 'Not in this server — add it' : (detectionOn ? 'No Dominyx bot yet' : 'Tap to open'))}
+                      {g.hasBot ? 'Manage config' : (absent ? 'Not in this server — add it' : (detectionOn ? 'No Aurex bot yet' : 'Tap to open'))}
                     </div>
                   </div>
                 </div>

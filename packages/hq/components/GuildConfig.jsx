@@ -181,7 +181,7 @@ export default function GuildConfig({ guildId, guildName = '', botsPresent = {},
       <div>
         <div className="panel glass" style={{ ['--panel-color']: BOTS.find((b) => b.id === active)?.color }}>
           {presentBots.length === 0 ? (
-            <div className="empty">No Dominyx bots are in this server yet. Invite one from the home page to get started.</div>
+            <div className="empty">No Aurex bots are in this server yet. Invite one from the home page to get started.</div>
           ) : (
             <>
               {activeBot && !isPresent(activeBot.id) && (
@@ -212,7 +212,7 @@ export default function GuildConfig({ guildId, guildName = '', botsPresent = {},
                   if (!url) return null;
                   return (
                     <a key={bot.id} className="btn btn-discord btn-sm" href={url} target="_blank" rel="noreferrer">
-                      {bot.emoji} Add {bot.name.replace('Dominyx ', '')}
+                      {bot.emoji} Add {bot.name.replace('Aurex ', '')}
                     </a>
                   );
                 })}
@@ -660,7 +660,7 @@ function TicketPanel({ cfg, meta, onRefresh, guildId }) {
       </Field>
       <div className="form-row">
         <Field label="Panel title" hint="Empty = default title.">
-          <input type="text" value={panelTitle} onChange={(e) => setPanelTitle(e.target.value)} placeholder="🎫 Dominyx Support Tickets" />
+          <input type="text" value={panelTitle} onChange={(e) => setPanelTitle(e.target.value)} placeholder="🎫 Aurex Support Tickets" />
         </Field>
         <Field label="Auto-close after (hours idle)" hint="0 = never auto-close.">
           <input type="number" min="0" max="720" value={inactiveCloseHours} onChange={(e) => setInactiveCloseHours(e.target.value)} />

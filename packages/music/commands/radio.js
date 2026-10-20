@@ -6,14 +6,14 @@ const { startRadio, stopRadio, getRadio, refillRadio, favCurrent } = require('..
 const { getOrCreatePlayer, getManager } = require('../lib/lavalink');
 const { getMusicSettings, requireDj } = require('../lib/settings');
 const { similarArtists } = require('../lib/reco');
-const { pool } = require('@dominyx/core');
+const { pool } = require('@aurex/core');
 
 function sessionEmbed(session) {
   return new EmbedBuilder()
     .setColor(0xEC4899)
     .setTitle(`📻 Radio: ${session.seed_artist}`)
     .setDescription(`Mode: **${session.mode === 'only' ? 'Artist Only' : 'Artist Mix'}** — auto-refills when the queue runs low.`)
-    .setFooter({ text: 'Dominyx • Radio' });
+    .setFooter({ text: 'Aurex • Radio' });
 }
 
 function sessionRows() {

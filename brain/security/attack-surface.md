@@ -1,4 +1,4 @@
-# Attack Surface — Dominyx Network
+# Attack Surface — Aurex Network
 
 Inventory with exact locations. `setDefaultMemberPermissions` is a Discord-UI default only (admins can re-allow) — every item below assumes it can be bypassed unless code re-checks.
 

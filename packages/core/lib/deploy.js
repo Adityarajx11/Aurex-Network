@@ -2,6 +2,8 @@ require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
 const { REST, Routes } = require('discord.js');
+const { buildModuleCommand } = require('./moduleCommand');
+const { MODULE_TABLES } = require('./settings');
 
 async function deployCommands(commandsDir) {
   if (!fs.existsSync(commandsDir)) {
@@ -21,6 +23,13 @@ async function deployCommands(commandsDir) {
     } catch (err) {
       console.warn(`Failed to load ${file}:`, err?.message || err);
     }
+  }
+
+  // The shared /module command lives in core rather than in the commands
+  // folder, so it has to be added here as well.
+  const moduleKey = path.basename(path.dirname(commandsDir));
+  if (MODULE_TABLES[moduleKey] && !commands.some((c) => c.name === 'module')) {
+    commands.push(buildModuleCommand(moduleKey).data.toJSON());
   }
 
   if (commands.length === 0) {

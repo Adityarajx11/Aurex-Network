@@ -8,7 +8,7 @@ export default async function InvitePage() {
     <>
       <nav className="nav">
         <a className="brand" href="/">
-          <span className="dot" /> DOMINYX <span className="badge">HQ</span>
+          <span className="dot" /> AUREX <span className="badge">HQ</span>
         </a>
         <a className="btn btn-ghost btn-sm" href="/">← Back to home</a>
       </nav>
@@ -71,7 +71,7 @@ export default async function InvitePage() {
       </section>
 
       <footer className="footer">
-        Dominyx Network · invite a bot, then manage it from the dashboard
+        Aurex Network · invite a bot, then manage it from the dashboard
       </footer>
     </>
   );

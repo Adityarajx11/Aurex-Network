@@ -1,6 +1,6 @@
 const { getGuardSettings } = require('../lib/guardStore');
 const { createCase, logCaseToChannel } = require('../lib/modlog');
-const { isModuleEnabled } = require('@dominyx/core');
+const { isModuleEnabled } = require('@aurex/core');
 
 const LINK_RE = /https?:\/\/|discord\.gg\/|discord\.com\/invite\//i;
 

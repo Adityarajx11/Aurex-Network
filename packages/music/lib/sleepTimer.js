@@ -1,4 +1,4 @@
-const { pool } = require('@dominyx/core');
+const { pool } = require('@aurex/core');
 
 async function initSleepTables() {
   await pool.query(`

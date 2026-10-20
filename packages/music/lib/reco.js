@@ -1,6 +1,6 @@
 // RecommendationProvider: Last.fm primary (optional key), curated fallback (always).
 // Everything resolves through searchTrack() at click time — menus carry queries, not audio.
-const { pool } = require('@dominyx/core');
+const { pool } = require('@aurex/core');
 
 const CURATED = {
   lofi: ['lofi hip hop radio', 'chill lofi beats', 'ambient study music'],

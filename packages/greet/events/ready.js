@@ -1,5 +1,5 @@
 const { initGreetSettings } = require('../lib/settings');
-const { ensureEnabledColumn } = require('@dominyx/core');
+const { ensureEnabledColumn } = require('@aurex/core');
 
 module.exports = {
   name: 'clientReady',

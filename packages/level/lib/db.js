@@ -1,4 +1,4 @@
-const { pool } = require('@dominyx/core');
+const { pool } = require('@aurex/core');
 
 async function initLevelDatabase() {
   await pool.query(`

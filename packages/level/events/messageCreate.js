@@ -1,6 +1,6 @@
 const { getUserXp, upsertUserXp, getLevelRoles, getLevelConfig } = require('../lib/db');
 const { calculateLevelUp, isOnCooldown } = require('../lib/leveling');
-const { isModuleEnabled } = require('@dominyx/core');
+const { isModuleEnabled } = require('@aurex/core');
 const { EmbedBuilder } = require('discord.js');
 
 module.exports = {
@@ -45,7 +45,7 @@ module.exports = {
         .setTitle('🎉 Level Up!')
         .setDescription(template.replaceAll('{user}', message.author.toString()).replaceAll('{level}', level))
         .setThumbnail(message.author.displayAvatarURL())
-        .setFooter({ text: 'Dominyx • Level Up', iconURL: message.client.user.displayAvatarURL() })
+        .setFooter({ text: 'Aurex • Level Up', iconURL: message.client.user.displayAvatarURL() })
         .setTimestamp();
 
       targetChannel?.send({ content: text, embeds: [embed] }).catch(() => {});

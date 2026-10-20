@@ -4,7 +4,7 @@ const { getGuardSettings, updateGuardSettings, addSelfRole, removeSelfRole } = r
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('guardsetup')
-    .setDescription('Admin only: configure Dominyx Guard')
+    .setDescription('Admin only: configure Aurex Guard')
     .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
     .addSubcommand(sub =>
       sub.setName('modlog')
@@ -182,7 +182,7 @@ module.exports = {
       const embed = new EmbedBuilder()
         .setColor(0xDC143C)
         .setTitle('🛡️ Guard Configuration')
-        .setFooter({ text: 'Dominyx • Guard' })
+        .setFooter({ text: 'Aurex • Guard' })
         .setTimestamp()
         .addFields(
           { name: 'Mod-Log Channel', value: settings?.modlog_channel_id ? `<#${settings.modlog_channel_id}>` : 'Not set' },

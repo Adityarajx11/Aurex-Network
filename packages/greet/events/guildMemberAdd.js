@@ -1,6 +1,7 @@
 const { AttachmentBuilder } = require('discord.js');
 const { getGreetSettings } = require('../lib/settings');
 const { generateWelcomeCard } = require('../lib/welcomeCard');
+const { isModuleEnabled } = require('@dominyx/core');
 
 const DEFAULT_TEMPLATE = '🚀 {user} just landed in {server}! We\'re now {membercount} members strong.';
 
@@ -9,6 +10,7 @@ module.exports = {
   async execute(member) {
     try {
       const guildId = member.guild.id;
+      if (!(await isModuleEnabled(guildId, 'greet'))) return;
       const settings = await getGreetSettings(guildId);
       const isBot = member.user.bot;
 

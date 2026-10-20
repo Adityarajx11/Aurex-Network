@@ -1,6 +1,7 @@
 const { getGuardSettings } = require('../lib/guardStore');
 const { createCase, logCaseToChannel } = require('../lib/modlog');
 const { alertModlog } = require('../lib/antinuke');
+const { isModuleEnabled } = require('@dominyx/core');
 
 // Join-burst windows per guild for raid detection (in-memory).
 const joins = new Map(); // guildId -> number[]
@@ -60,6 +61,7 @@ module.exports = {
     try {
       const guild = member.guild;
       if (!guild) return;
+      if (!(await isModuleEnabled(guild.id, 'guard'))) return;
       const settings = (await getGuardSettings(guild.id).catch(() => null)) ?? {};
 
       // Count every join (bots included) toward burst detection first.

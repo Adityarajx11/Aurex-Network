@@ -1,11 +1,13 @@
 const { getUserXp, upsertUserXp, getLevelRoles, getLevelConfig } = require('../lib/db');
 const { calculateLevelUp, isOnCooldown } = require('../lib/leveling');
+const { isModuleEnabled } = require('@dominyx/core');
 const { EmbedBuilder } = require('discord.js');
 
 module.exports = {
   name: 'messageCreate',
   async execute(message) {
     if (message.author.bot || !message.guild) return;
+    if (!(await isModuleEnabled(message.guild.id, 'level'))) return;
 
     const config = await getLevelConfig(message.guild.id).catch(() => null);
     const xpMin = Number.isInteger(config?.xp_min) ? config.xp_min : 15;

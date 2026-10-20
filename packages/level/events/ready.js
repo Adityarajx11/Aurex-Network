@@ -1,4 +1,5 @@
 const { initLevelDatabase } = require('../lib/db');
+const { ensureEnabledColumn } = require('@dominyx/core');
 
 module.exports = {
   name: 'clientReady',
@@ -7,6 +8,7 @@ module.exports = {
     console.log(`✅ Logged in as ${client.user.tag}`);
     try {
       await initLevelDatabase();
+      await ensureEnabledColumn('level');
     } catch (err) {
       console.error('⚠️ DB init failed:', err.message);
     }

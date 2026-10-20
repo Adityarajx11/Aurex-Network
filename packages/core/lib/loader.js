@@ -1,10 +1,13 @@
 const fs = require('fs');
 const path = require('path');
+const { buildModuleCommand } = require('./moduleCommand');
+const { MODULE_TABLES } = require('./settings');
 
 function loadCommands(client, commandsDir) {
   client.commands = new (require('discord.js').Collection)();
   if (!fs.existsSync(commandsDir)) return;
   const files = fs.readdirSync(commandsDir).filter(f => f.endsWith('.js'));
+  let loaded = 0;
   for (const file of files) {
     let command;
     try {
@@ -18,7 +21,17 @@ function loadCommands(client, commandsDir) {
       continue;
     }
     client.commands.set(command.data.name, command);
+    loaded++;
   }
+
+  // Every Dominyx bot gets the shared /module command, so the module switch
+  // can be flipped from Discord as well as from the dashboard.
+  const moduleKey = path.basename(path.dirname(commandsDir));
+  if (MODULE_TABLES[moduleKey] && !client.commands.has('module')) {
+    client.commands.set('module', buildModuleCommand(moduleKey));
+    loaded++;
+  }
+
   console.log(`📦 Loaded ${client.commands.size} command(s).`);
 }
 

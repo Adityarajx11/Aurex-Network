@@ -18,9 +18,16 @@ pool.on('error', (err) => {
   console.error('⚠️ Postgres pool error (idle client):', err.message);
 });
 
+// Tests swap in an in-memory Postgres implementation.
+let injectedPool = null;
+
+function usePool(instance) {
+  injectedPool = instance;
+}
+
 async function initDatabase() {
   try {
-    await pool.query('SELECT 1');
+    await (injectedPool || pool).query('SELECT 1');
     console.log('🗄️  Database pool ready.');
   } catch (err) {
     console.error('⚠️ Could not reach the database:', err.message);
@@ -28,4 +35,10 @@ async function initDatabase() {
   }
 }
 
-module.exports = { pool, initDatabase };
+module.exports = {
+  get pool() {
+    return injectedPool || pool;
+  },
+  initDatabase,
+  usePool,
+};

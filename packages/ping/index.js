@@ -4,7 +4,7 @@ require('dotenv').config({ path: path.join(__dirname, '.env') });
 require('dotenv').config();
 const { Client, GatewayIntentBits, MessageFlags } = require('discord.js');
 
-const { loadCommands, loadEvents } = require('@dominyx/core');
+const { loadCommands, loadEvents, requireModuleEnabled } = require('@dominyx/core');
 
 const client = new Client({
   intents: [
@@ -16,6 +16,8 @@ loadCommands(client, path.join(__dirname, 'commands'));
 loadEvents(client, path.join(__dirname, 'events'));
 
 client.on('interactionCreate', async (interaction) => {
+  if (interaction.guildId && !(await requireModuleEnabled(interaction, 'ping'))) return;
+
   if (!interaction.isChatInputCommand()) return;
   const command = client.commands.get(interaction.commandName);
   if (!command) return;

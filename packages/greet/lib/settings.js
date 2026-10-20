@@ -29,6 +29,7 @@ async function getGreetSettings(guildId) {
     if (result.rows.length === 0) return {};
     const row = result.rows[0];
     return {
+      enabled: row.enabled !== false,
       welcomeChannelId: row.welcome_channel_id,
       welcomeMessage: row.welcome_message,
       autoRoleId: row.auto_role_id,

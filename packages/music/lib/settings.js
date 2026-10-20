@@ -43,6 +43,7 @@ async function getMusicSettings(guildId) {
     const row = result.rows[0];
     if (!row) return { ...MUSIC_DEFAULTS };
     return {
+      enabled: row.enabled !== false,
       stay247: row.stay_247 ?? false,
       defaultVolume: Number.isInteger(row.default_volume) ? row.default_volume : 100,
       djRoleId: row.dj_role_id || null,

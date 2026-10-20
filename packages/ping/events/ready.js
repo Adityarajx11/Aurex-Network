@@ -1,4 +1,5 @@
 const { initPingSettings } = require('../lib/pingStore');
+const { ensureEnabledColumn } = require('@dominyx/core');
 const { startLivePolling } = require('../lib/youtubeLive');
 
 module.exports = {
@@ -8,6 +9,7 @@ module.exports = {
     console.log(`✅ Logged in as ${client.user.tag}`);
     try {
       await initPingSettings();
+      await ensureEnabledColumn('ping');
     } catch (err) {
       console.error('⚠️ DB init failed:', err.message);
     }

@@ -1,4 +1,4 @@
-const { initDatabase } = require('@dominyx/core');
+const { initDatabase, ensureEnabledColumn } = require('@dominyx/core');
 const { initManager } = require('../lib/lavalink');
 const { initMusicSettings } = require('../lib/settings');
 const { initHistoryTables } = require('../lib/history');
@@ -14,6 +14,7 @@ module.exports = {
     try {
       await initDatabase();
       await initMusicSettings();
+      await ensureEnabledColumn('music');
       await initHistoryTables();
       await initXpTables();
       await initSleepTables();

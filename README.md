@@ -44,6 +44,45 @@ packages/
 2. Local dev: `npm run dev:hq`
 3. Deploy to Vercel (set **root directory = `packages/hq`**, install command `npm install`, no build step needed — Vercel auto-detects Next.js).
 
+## Dashboard connection
+
+The Dominyx web dashboard (<https://github.com/adixlucifer0011/dominyx-discord-bots>) writes configuration straight into the same Postgres database these bots read. Every module owns one table:
+
+| Module | Table |
+| --- | --- |
+| Music | `music_settings` |
+| Level | `level_config` |
+| Greet | `greet_settings` |
+| Ticket | `ticket_config` |
+| Ping | `ping_settings` |
+| Security | `guard_settings` |
+
+Each table carries an `enabled` column, which is the module on/off switch. `@dominyx/core` reads it for you:
+
+```js
+const { isModuleEnabled, requireModuleEnabled, setModuleEnabled } = require('@dominyx/core');
+
+if (!(await isModuleEnabled(guildId, 'music'))) return;       // in an event handler
+if (!(await requireModuleEnabled(interaction, 'music'))) return; // in a command
+await setModuleEnabled(guildId, 'music', false);                // flip the switch
+```
+
+- `requireModuleEnabled` replies with an ephemeral "module is disabled" notice and returns `false`, so you can put it at the top of an interaction handler.
+- Reads are cached for 15 seconds (`DOMINYX_SETTINGS_TTL_MS`) so per-message handlers do not hit the database on every message. Dashboard changes land within that window.
+- A database error fails **open**: a database hiccup never switches a bot off.
+
+Every bot also gets a shared `/module` command — `/module status`, `/module enable`, `/module disable` — so admins can flip the switch from Discord. It writes the same column the dashboard writes, so both sides stay in sync.
+
+To use the dashboard, point it at the same `DATABASE_URL` and set the same `BOT_ID_*` application IDs. The dashboard creates the tables and the `enabled` column automatically.
+
+## Tests
+
+```bash
+npm test
+```
+
+Covers the module switch: defaults, read/write, caching, fail-open behaviour, and the interaction guard.
+
 ## Conventions
 
 - CommonJS `require`/`module.exports` — never ESM.

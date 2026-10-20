@@ -4,7 +4,7 @@ require('dotenv').config({ path: path.join(__dirname, '.env') });
 require('dotenv').config();
 const { Client, GatewayIntentBits, MessageFlags, Events } = require('discord.js');
 
-const { loadCommands, loadEvents } = require('@dominyx/core');
+const { loadCommands, loadEvents, requireModuleEnabled } = require('@dominyx/core');
 const { startAutoClose } = require('./lib/autoClose');
 
 const client = new Client({
@@ -23,6 +23,8 @@ loadEvents(client, path.join(__dirname, 'events'));
 client.once(Events.ClientReady, () => startAutoClose(client));
 
 client.on('interactionCreate', async (interaction) => {
+  if (interaction.guildId && !(await requireModuleEnabled(interaction, 'ticket'))) return;
+
   if (!interaction.isChatInputCommand()) return;
   const command = client.commands.get(interaction.commandName);
   if (!command) return;

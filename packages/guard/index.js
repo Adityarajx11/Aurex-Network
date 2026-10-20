@@ -4,7 +4,7 @@ require('dotenv').config({ path: path.join(__dirname, '.env') });
 require('dotenv').config();
 const { Client, GatewayIntentBits, MessageFlags } = require('discord.js');
 
-const { loadCommands, loadEvents } = require('@dominyx/core');
+const { loadCommands, loadEvents, requireModuleEnabled } = require('@dominyx/core');
 const { handleSelfRoleSelect } = require('./lib/selfRoleMenu');
 
 const client = new Client({
@@ -22,6 +22,8 @@ loadCommands(client, path.join(__dirname, 'commands'));
 loadEvents(client, path.join(__dirname, 'events'));
 
 client.on('interactionCreate', async (interaction) => {
+  if (interaction.guildId && !(await requireModuleEnabled(interaction, 'guard'))) return;
+
   if (interaction.isStringSelectMenu()) {
     if (interaction.customId.startsWith('selfrole')) {
       return handleSelfRoleSelect(interaction);

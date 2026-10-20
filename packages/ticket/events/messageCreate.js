@@ -1,4 +1,5 @@
 const { getTicketByChannel, touchTicketActivity } = require('../lib/ticketStore');
+const { isModuleEnabled } = require('@dominyx/core');
 
 // Cache of open ticket channels so ordinary chat costs zero DB reads.
 // Invalidated on close (ticketInteractions) and refreshed on miss.
@@ -10,6 +11,7 @@ module.exports = {
   async execute(message) {
     try {
       if (message.author.bot || !message.guild) return;
+      if (!(await isModuleEnabled(message.guild.id, 'ticket'))) return;
       if (cacheReady && !openChannels.has(message.channel.id)) return;
       const ticket = await getTicketByChannel(message.channel.id);
       if (!ticket || !['open', 'claimed'].includes(ticket.status)) {

@@ -1,6 +1,20 @@
 const { SlashCommandBuilder, PermissionFlagsBits, EmbedBuilder, MessageFlags } = require('discord.js');
 const { isModuleEnabled, setModuleEnabled, MODULE_LABELS } = require('./settings');
 
+// The host and database name only. The password is never included, but seeing
+// which database the bot is reading makes it obvious when a bot and the
+// dashboard are pointed at different ones.
+function databaseTarget() {
+  const url = process.env.DATABASE_URL;
+  if (!url) return 'DATABASE_URL is not set';
+  try {
+    const parsed = new URL(url);
+    return `${parsed.hostname}/${parsed.pathname.replace(/^\//, '') || 'railway'}`;
+  } catch {
+    return 'DATABASE_URL is not a valid URL';
+  }
+}
+
 // A shared command every Aurex bot registers. It flips the same `enabled`
 // column the dashboard writes, so the bot and the dashboard stay in sync no
 // matter which side the change is made from.
@@ -45,7 +59,10 @@ function buildModuleCommand(module) {
         embeds: [new EmbedBuilder()
           .setColor(enabled ? 0x2ecc71 : 0x95a5a6)
           .setTitle(`📡 ${label} Module`)
-          .addFields({ name: 'Status', value: enabled ? 'Enabled' : 'Disabled' })
+          .addFields(
+            { name: 'Status', value: enabled ? 'Enabled' : 'Disabled' },
+            { name: 'Database', value: databaseTarget() },
+          )
           .setFooter({ text: 'Aurex • Control' })
           .setTimestamp()],
         flags: MessageFlags.Ephemeral,
